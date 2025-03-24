@@ -52,7 +52,9 @@ Etape-4 : Création du registre privé et de son backend
 Etape-5 : Tag et envoi des images
 
   
-Taguer une image Docker permet de l'identifier de manière unique et d'indiquer où et comment elle sera stockée. Nous mettons donc de nouveau tag pour bien les identifier. 
-En lancant la commande "docker push", nous envoyons donc les images dnas le registre privée.Voir image 13 et 14
+Taguer une image Docker permet de l'identifier de manière unique et d'indiquer où et comment elle sera stockée. Nous mettons donc des nouveaux tags pour bien les identifier. 
+En lancant la commande "docker push", nous envoyons donc les images dans le registre privé. Voir image 13 et 14.
+
+
 J'ai malheuresement un message d'erreur dans le registre privé qui m'empeche de montrer les images chargés. Message d'erreur :__{"errors":[{"code":"PAGINATION_NUMBER_INVALID","message":"invalid number of results requested","detail":{"n":100000}}]}__
 Mais avec la commande "curl -X GET http://localhost:5000/v2/_catalog" on peut voir que les images ont bien été poussées. Voir image 14.
