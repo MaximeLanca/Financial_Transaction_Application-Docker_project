@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   paymybuddy-backend:
-    image: spring_boot_image:1   
     build: .              
     ports:
       - "8080:8080"       
