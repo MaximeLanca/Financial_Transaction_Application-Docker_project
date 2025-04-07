@@ -17,7 +17,7 @@ Le projet repose sur l'architecture suivante :
 
 Les services sont déployés ensemble grâce à Docker Compose pour permettre un environnement de développement ou de production isolé, reproductible et portable.
 
-1- Lancer "git clone" du répository https://github.com/eazytraining/bootcamp-project-update.git et aller dans le mini-projet docker. Voir images 1, 2 et 3.clea
+1- Lancer "git clone" du répository https://github.com/eazytraining/bootcamp-project-update.git et aller dans le mini-projet docker. Voir images 1, 2 et 3.
 
 2- Créer un fichier .env contenant les variables d'environnement (comme les mots de passe). Voir images 4, 5 et 6 :
 MYSQL_USER=paymybuddy_user
