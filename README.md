@@ -35,34 +35,34 @@ EXPOSE 8080
 CMD ["java", "-jar", "/paymybuddy.jar"]
 
 4- Complèter le fichier docker-compose.yml. Voir images 9, 10 et 11:
-version: '3.8'
-services:
-  paymybuddy-backend:
-    build: .
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
-      - SPRING_DATASOURCE_USERNAME=${MYSQL_USER}
-      - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}
-    depends_on:
-      - paymybuddy-db
+version: '3.8' \
+services: \
+  paymybuddy-backend: \
+    build: . \
+    ports: \
+      - "8080:8080" \
+    environment: \
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL} \
+      - SPRING_DATASOURCE_USERNAME=${MYSQL_USER} \
+      - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD} \
+    depends_on: \
+      - paymybuddy-db \
 
-  paymybuddy-db:
-    image: mysql:8.0
-    environment:
-	- MYSQL_ROOT_PASSWORD=${MYSQL_ROOR_PASSWORD}
-	- MYSQL_DATABASE=${MYSQL_DATABASE}
-    	- MYSQL_USER=${MYSQL_USER}
-    	- MYSQL_PASSWORD=${MYSQL_PASSWORD}
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./initdb:/docker-entrypoint-initdb.d
-    ports:
-      - "3306:3306"
+  paymybuddy-db: \
+    image: mysql:8.0 \
+    environment: \
+	- MYSQL_ROOT_PASSWORD=${MYSQL_ROOR_PASSWORD} \
+	- MYSQL_DATABASE=${MYSQL_DATABASE} \
+    	- MYSQL_USER=${MYSQL_USER} \
+    	- MYSQL_PASSWORD=${MYSQL_PASSWORD} \
+    volumes: \
+      - db_data:/var/lib/mysql \
+      - ./initdb:/docker-entrypoint-initdb.d \
+    ports: \
+      - "3306:3306" \
 
-volumes:
-  db_data:
+volumes: \
+  db_data: 
 
 5- Depuis le dossier contenant le docker-compose.yml, on execute : docker-compose up -d. Cela va construire les images et lancer les conteneurs. Voir image 12.
 
