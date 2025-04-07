@@ -87,5 +87,5 @@ volumes: \
 
 14- On peut quand meme vérifier la validation des envoies dans le repository avec la commande "curl -X GET http://localhost:5000/v2/_catalog". Voir image 22.
 
-11- Vérifier que l'image à bien été poussé: curl -X GET http://localhost:5000/v2/_catalog
+15- Vérifier que l'image à bien été poussé: curl -X GET http://localhost:5000/v2/_catalog
 
