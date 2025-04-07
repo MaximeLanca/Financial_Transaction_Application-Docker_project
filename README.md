@@ -1,6 +1,6 @@
 # Financial_Transaction_Application-Docker_project
 
-J'ai decomposé ma méthodogie en 5 étapes. Quelques etapes sont accompagnés d'un ou plusieurs screenshots. Cela sera notifié par : Voir 'image n°_de_l'image.
+Les étapes sont accompagnées d'un ou plusieurs screenshots. Cela sera notifié par : Voir 'image n°_de_l'image.
 Les screenshots sont disponibles dans le dossier "screenshot" du projet.
 
 ----------------------------------------------------------------------------------------------------------
