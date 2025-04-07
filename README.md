@@ -20,19 +20,19 @@ Les services sont déployés ensemble grâce à Docker Compose pour permettre un
 1- Lancer "git clone" du répository https://github.com/eazytraining/bootcamp-project-update.git et aller dans le mini-projet docker. Voir images 1, 2 et 3.
 
 2- Créer un fichier .env contenant les variables d'environnement (comme les mots de passe). Voir images 4, 5 et 6 :
-MYSQL_USER=paymybuddy_user
-MYSQL_PASSWORD=supermotdepasse
-MYSQL_DATABASE=paymybuddy
-SPRING_DATASOURCE_URL=jdbc:mysql://paymybuddy-db:3306/paymybuddy
+MYSQL_USER=paymybuddy_user \
+MYSQL_PASSWORD=supermotdepasse \
+MYSQL_DATABASE=paymybuddy \
+SPRING_DATASOURCE_URL=jdbc:mysql://paymybuddy-db:3306/paymybuddy \
 MYSQL_ROOT_PASSWORD=rootpassword
 
 3- Completer le Dockerfile pour builder l’application. Voir images 7 et 8:
-FROM amazoncorretto:17-alpine
-LABEL maintainer="Maxime Lanca"
-VOLUME /data
-COPY target/paymybuddy.jar /paymybuddy.jar
-EXPOSE 8080
-CMD ["java", "-jar", "/paymybuddy.jar"]
+FROM amazoncorretto:17-alpine \
+LABEL maintainer="Maxime Lanca" \
+VOLUME /data \
+COPY target/paymybuddy.jar /paymybuddy.jar \
+EXPOSE 8080 \
+CMD ["java", "-jar", "/paymybuddy.jar"] \
 
 4- Complèter le fichier docker-compose.yml. Voir images 9, 10 et 11:
 version: '3.8' \
