@@ -26,7 +26,7 @@ MYSQL_DATABASE=paymybuddy \
 SPRING_DATASOURCE_URL=jdbc:mysql://paymybuddy-db:3306/paymybuddy \
 MYSQL_ROOT_PASSWORD=rootpassword
 
-3- Completer le Dockerfile pour builder l’application. Voir images 7 et 8:
+3- Completer le Dockerfile pour builder l’application. Voir images 7 et 8: \
 FROM amazoncorretto:17-alpine \
 LABEL maintainer="Maxime Lanca" \
 VOLUME /data \
