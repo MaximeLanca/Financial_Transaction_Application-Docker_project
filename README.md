@@ -46,7 +46,7 @@ services: \
       - SPRING_DATASOURCE_USERNAME=${MYSQL_USER} \
       - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD} \
     depends_on: \
-      - paymybuddy-db \
+      - paymybuddy-db 
 
   paymybuddy-db: \
     image: mysql:8.0 \
@@ -59,7 +59,7 @@ services: \
       - db_data:/var/lib/mysql \
       - ./initdb:/docker-entrypoint-initdb.d \
     ports: \
-      - "3306:3306" \
+      - "3306:3306" 
 
 volumes: \
   db_data: 
@@ -83,11 +83,9 @@ volumes: \
 
 12- On envoie les images dans le repository en lancant docker push sur les deux images taguées. Voir image 19.
 
-13- J'ai toujours un problème avec mon repository en allant dans le port dédié. Voir image 20. Et voir image 21 pour le message d'erreur.
+13- J'ai toujours un problème avec le registre privé qui m'empeche de montrer les images chargés  en allant dans le port dédié. Voir image 20. Et voir image 21 pour le message d'erreur.
 
 14- On peut quand meme vérifier la validation des envoies dans le repository avec la commande "curl -X GET http://localhost:5000/v2/_catalog". Voir image 22.
 
 11- Vérifier que l'image à bien été poussé: curl -X GET http://localhost:5000/v2/_catalog
 
-
-J'ai malheuresement un message d'erreur dans le registre privé qui m'empeche de montrer les images chargés. Message d'erreur :__{"errors":[{"code":"PAGINATION_NUMBER_INVALID","message":"invalid number of results requested","detail":{"n":100000}}]}__.
