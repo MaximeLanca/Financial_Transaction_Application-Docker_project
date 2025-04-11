@@ -9,8 +9,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=${MYSQL_USER}
       - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}
   depends_on:
-      - paymybuddy-db     
-
+      - paymybuddy-db
   paymybuddy-db:
     image: mysql:8.0  
     environment:
