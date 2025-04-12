@@ -17,25 +17,39 @@ Le projet repose sur l'architecture suivante :
 
 Les services sont déployés ensemble grâce à Docker Compose pour permettre un environnement de développement ou de production isolé, reproductible et portable.
 
-1- Lancer "git clone" du répository https://github.com/eazytraining/bootcamp-project-update.git et aller dans le mini-projet docker. Voir images 1, 2 et 3.
+Copier le lien HTTPS du répository https://github.com/MaximeLanca/Financial_Transaction_Application-Docker_project.git  aller dans le mini-projet docker.
  ![01](./screenshot/01.png)
 
-2- Créer un fichier .env contenant les variables d'environnement (comme les mots de passe). Voir images 4, 5 et 6 :
+Aller sur le repertoire suivant: /root/Financial_Transaction_Application-Docker_project.
+ ![02](./screenshot/02.png)
+
+Ce répertoire comporte trois fichiers importants pour la containerisation:
+-le fichier .env
+-le fichier Dockerfile
+-le fichier docker-compose.yml
+ ![03](./screenshot/03.png)
+ ![04](./screenshot/04.png)
+
+J'ai crée Le fichier .env pour contenir les variables d'environnement suivant: 
 MYSQL_USER=paymybuddy_user \
 MYSQL_PASSWORD=supermotdepasse \
 MYSQL_DATABASE=paymybuddy \
 SPRING_DATASOURCE_URL=jdbc:mysql://paymybuddy-db:3306/paymybuddy \
 MYSQL_ROOT_PASSWORD=rootpassword
+ ![05](./screenshot/05.png)
+ ![06](./screenshot/06.png)
 
-3- Completer le Dockerfile pour builder l’application. Voir images 7 et 8: \
+J'ai completé le Dockerfile pour builder l’application de cette façon:
 FROM amazoncorretto:17-alpine \
 LABEL maintainer="Maxime Lanca" \
 VOLUME /data \
 COPY target/paymybuddy.jar /paymybuddy.jar \
 EXPOSE 8080 \
 CMD ["java", "-jar", "/paymybuddy.jar"] \
+ ![07](./screenshot/07.png)
+ ![08](./screenshot/08.png)
 
-4- Complèter le fichier docker-compose.yml. Voir images 9, 10 et 11:
+J'ai completé le fichier docker-compose.yml avec les élements suivant::
 version: '3.8' \
 services: \
   paymybuddy-backend: \
@@ -64,29 +78,41 @@ services: \
 
 volumes: \
   db_data: 
+ ![09](./screenshot/09.png)
+ ![10](./screenshot/10.png)
+ ![11](./screenshot/11.png)
 
-5- Depuis le dossier contenant le docker-compose.yml, on execute : docker-compose up -d. Cela va construire les images et lancer les conteneurs. Voir image 12.
+Depuis le dossier contenant le docker-compose.yml, on execute : docker-compose up -d. Cela va construire les images et lancer les conteneurs.
+ ![12](./screenshot/12.png)
 
-6- Vérifier que tout fonctionne avec : docker images. Voir image 13.
+Vérifier que tout fonctionne avec : docker images.
+ ![13](./screenshot/13.png)
 
-7- Créer un réseau Docker pour connecter les services: docker network create paymybuddy-network et faire lancer docker network ls pour vérifier la création du réseau. Voir image 14.
+Créer un réseau Docker pour connecter les services: docker network create paymybuddy-network et faire lancer docker network ls pour vérifier la création du réseau.
+ ![14](./screenshot/14.png)
 
-8- Lancer un registre privé: docker run -d -p 5000:5000 --net paymybuddy-network --name paymybuddy-registry -e REGISTRY_STORAGE_DELETE_ENABLED=true registry:2. Voir image 15.
+Lancer un registre privé: docker run -d -p 5000:5000 --net paymybuddy-network --name paymybuddy-registry -e REGISTRY_STORAGE_DELETE_ENABLED=true registry:2.
+ ![15](./screenshot/15.png)
 
-9- Lancer l'interface web du registre. Voir image 16: docker run -d -p 8081:80 --net paymybuddy-network --name paymybuddy-frontend \
+Lancer l'interface web du registre: docker run -d -p 8081:80 --net paymybuddy-network --name paymybuddy-frontend \
   -e REGISTRY_URL=http://paymybuddy-registry:5000 \
   -e REGISTRY_TITLE=PayMyBuddyRegistry \
   joxit/docker-registry-ui:1.5-static
+  ![16](./screenshot/16.png)
 
-10- Vérification des conteneurs et des images avec docker images et docker ps. Voir image 17.
+Vérification des conteneurs et des images avec docker images et docker ps.
+ ![17](./screenshot/17.png)
 
-11- Taguer les images "mini-projet-docker-paymybuddy-backend" et "mysql" par "localhost:5000/paymybuddy-backend:local" et "localhost:5000/paymybuddy-db:local" avec docker tag. Voir image 18.
+Taguer les images "mini-projet-docker-paymybuddy-backend" et "mysql" par "localhost:5000/paymybuddy-backend:local" et "localhost:5000/paymybuddy-db:local" avec docker tag.
+ ![18](./screenshot/18.png)
 
-12- On envoie les images dans le repository en lancant docker push sur les deux images taguées. Voir image 19.
+On envoie les images dans le repository en lancant docker push sur les deux images taguées.
+ ![19](./screenshot/19.png)
 
-13- J'ai toujours un problème avec le registre privé qui m'empeche de montrer les images chargés  en allant dans le port dédié. Voir image 20. Et voir image 21 pour le message d'erreur.
+J'ai toujours un problème avec le registre privé qui m'empeche de montrer les images chargés en allant dans le port dédié.
+ ![20](./screenshot/20.png)
+ ![21](./screenshot/21.png)
 
-14- On peut quand meme vérifier la validation des envoies dans le repository avec la commande "curl -X GET http://localhost:5000/v2/_catalog". Voir image 22.
-
-15- Vérifier que l'image à bien été poussé: curl -X GET http://localhost:5000/v2/_catalog
+14- On peut quand meme vérifier la validation des envoies dans le repository avec la commande "curl -X GET http://localhost:5000/v2/_catalog".
+ ![22](./screenshot/22.png)
 
