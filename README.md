@@ -43,10 +43,7 @@ Aller sur le repertoire suivant: /root/Financial_Transaction_Application-Docker_
 ![02](./screenshot/02.png)
 
 ### Etape 3 
-Ce répertoire comporte trois fichiers importants pour la containerisation:
--le fichier .env
--le fichier Dockerfile
--le fichier docker-compose.yml
+Ce répertoire comporte trois fichiers importants pour la containerisation: le fichier .env, le fichier Dockerfile et le fichier docker-compose.yml.
 Ces trois fichiers sont deja remplis dans le repository.
 Je décris juste les 3 prochaines etapes.
 
