@@ -30,7 +30,7 @@ Voici la liste des commandes a utilisé:
 
 Description de la stack:
 
-####Etape 1
+#### Etape 1 \
 Copier le lien HTTPS du répository https://github.com/MaximeLanca/Financial_Transaction_Application-Docker_project.git
 
 ![01](./screenshot/01.png)
