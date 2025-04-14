@@ -27,6 +27,7 @@ Voici la liste des commandes a utilisé:
 - docker tag mysql:8.0 localhost:5000/paymybuddy-db:local
 - docker push localhost:5000/paymybuddy-backend:local
 - docker push localhost:5000/paymybuddy-db:local 
+- curl -X GET http://localhost:5000/v2/_catalog
 
 Description de la stack:
 
@@ -109,7 +110,6 @@ volumes: \
 
 ![09](./screenshot/09.png)
 ![10](./screenshot/10.png)
-![11](./screenshot/11.png)
 
 
 ### Etape 7 
@@ -148,19 +148,22 @@ Lancer l'interface web du registre: docker run -d -p 8081:80 --net paymybuddy-ne
 ### Etape 12 
 Vérification des conteneurs et des images avec docker images et docker ps.
 
-![17](./screenshot/17.png)
+![17a](./screenshot/17a.png)
+![17b](./screenshot/17b.png)
 
 
 ### Etape 13 
 Taguer les images "financial_transaction_application-docker_project-paymybuddy-backend" et "mysql" par "localhost:5000/paymybuddy-backend:local" et "localhost:5000/paymybuddy-db:local" avec docker tag.
 
-![18](./screenshot/18.png)
+![18a](./screenshot/18a.png)
+![18b](./screenshot/18b.png)
 
 
 ### Etape 14 
 On envoie les images dans le repository en lancant docker push sur les deux images taguées.
 
-![19](./screenshot/19.png)
+![19a](./screenshot/19a.png)
+![19b](./screenshot/19b.png)
 
 
 ### Etape 15 
